@@ -37,10 +37,8 @@ public class MergeObjects {
         
         map[snake.getSnakePos(0).getPosX()][snake.getSnakePos(0).getPosY()] = Typ.SCHLANGENKOPF;
         for (int a = 1; a < snake.getLaenge(); a++) {
-            System.out.println(snake.getSnakePos(a).getPosX()+" | "+snake.getSnakePos(a).getPosY());
             map[snake.getSnakePos(a).getPosX()][snake.getSnakePos(a).getPosY()] = Typ.SCHLANGENKOERPER;
         }
-        System.out.println();
         for (int b = 0; b < items.size(); b++) {
             map[items.get(b).getPosition().getPosX()][items.get(b).getPosition().getPosY()] = items.get(b).getTyp();
         }

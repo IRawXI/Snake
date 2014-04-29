@@ -62,10 +62,8 @@ public class Schlange {
             schlange.remove(schlange.size()-1);
         }//if
         else{}//else 
-        System.out.println("(bew)");
         
         if(kuerzer){//lösche ncoh eine Position (kuerzen)
-            System.out.println("(kuerzen)");
             for(int i = 0; i < 3; i++) {
                 if(!(schlange.size()-1 < Main.laenge)){
                     schlange.remove(schlange.size()-1);

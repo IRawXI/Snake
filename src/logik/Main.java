@@ -60,12 +60,12 @@ public class Main {
     private static int item_kuerzer_spawnAgain_in = 250;
     private static int item_schneller_spawnAgain_in = 500;
     
-    private static final int item_laenger_despawnAgain_after = 750;
-    private static final int item_kuerzer_despawnAgain_after = 500;
-    private static final int item_schneller_despawnAgain_after = 500;
-    private static int item_laenger_despawnAgain_in = 750;
-    private static int item_kuerzer_despawnAgain_in = 500;
-    private static int item_schneller_despawnAgain_in = 500;
+    private static final int item_laenger_despawn_after = 750;
+    private static final int item_kuerzer_despawn_after = 500;
+    private static final int item_schneller_despawn_after = 500;
+    private static int item_laenger_despawn_in = 750;
+    private static int item_kuerzer_despawn_in = 500;
+    private static int item_schneller_despawn_in = 500;
     
     private static final int sleeptime = 375;
     
@@ -270,7 +270,7 @@ public class Main {
                     pos = randomPosition();
                 } while (!testPosition(pos));
                 items.add(new Item(pos, Itemtyp.LAENGER));
-                item_laenger_despawnAgain_in = item_laenger_despawnAgain_after;
+                item_laenger_despawn_in = item_laenger_despawn_after;
             }else{
                 item_laenger_pausedRound = true;
             }
@@ -284,7 +284,7 @@ public class Main {
                     pos = randomPosition();
                 } while (!testPosition(pos));
                 items.add(new Item(pos, Itemtyp.KUERZER));
-                item_kuerzer_despawnAgain_in = item_kuerzer_despawnAgain_after;
+                item_kuerzer_despawn_in = item_kuerzer_despawn_after;
             }else { 
                 item_kuerzer_spawnAgain_in-= new Random().nextInt(10);
             }
@@ -298,7 +298,7 @@ public class Main {
                     pos = randomPosition();
                 } while (!testPosition(pos));
                 items.add(new Item(pos, Itemtyp.SCHNELLER));
-                item_schneller_despawnAgain_in = item_schneller_despawnAgain_after;
+                item_schneller_despawn_in = item_schneller_despawn_after;
             }else {            
                 item_schneller_spawnAgain_in-= new Random().nextInt(10);
             }
@@ -310,42 +310,44 @@ public class Main {
     
     public static void itemDespawner(boolean laenger_exists, boolean kuerzer_exists, boolean schneller_exists){
         
+        oberflaeche.setjLabel5Text("Länger: "+item_laenger_despawn_in+" Kürzer: "+item_kuerzer_despawn_in+" Schneller: "+item_schneller_despawn_in);
+        
         //ITEM LAENGER
         if(laenger_exists){
-            if(item_laenger_despawnAgain_in <= 0){
+            if(item_laenger_despawn_in <= 0){
                 for(int c = 0; c < items.size(); c++){
                     if(items.get(c).getItemtyp() == Itemtyp.SCHNELLER){
                         items.remove(c);
                     }
                 }
             }else{
-                item_laenger_despawnAgain_in-= new Random().nextInt(10);
+                item_laenger_despawn_in-= new Random().nextInt(10);
             }
         }else{}
         
         //ITEM KUERZER
         if(kuerzer_exists){
-            if(item_kuerzer_despawnAgain_in <= 0) {
+            if(item_kuerzer_despawn_in <= 0) {
                 for(int c = 0; c < items.size(); c++){
                     if(items.get(c).getItemtyp() == Itemtyp.SCHNELLER){
                         items.remove(c);
                     }
                 }
             }else { 
-                item_kuerzer_despawnAgain_in-= new Random().nextInt(10);
+                item_kuerzer_despawn_in-= new Random().nextInt(10);
             }
         }else{}
         
         //ITEM SCHNELLER
         if(schneller_exists){
-            if(item_schneller_despawnAgain_in <= 0) {
+            if(item_schneller_despawn_in <= 0) {
                 for(int c = 0; c < items.size(); c++){
                     if(items.get(c).getItemtyp() == Itemtyp.SCHNELLER){
                         items.remove(c);
                     }
                 }
             }else {            
-                item_schneller_despawnAgain_in-= new Random().nextInt(10);
+                item_schneller_despawn_in-= new Random().nextInt(10);
             }
         }else{}
         
@@ -376,7 +378,6 @@ public class Main {
                 Thread.sleep(sleeptime);
             } catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
-                //System.out.println("interrupted");
             }
         }
     }

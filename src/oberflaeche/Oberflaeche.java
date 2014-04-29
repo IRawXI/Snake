@@ -357,7 +357,6 @@ public class Oberflaeche extends JFrame {
 
     public void jButton3_ActionPerformed(ActionEvent evt) { // "Start"
         start = true;
-        jLabel2.setText("start=true");
     } // end of jButton3_ActionPerformed
 
     public void jButton4_ActionPerformed(ActionEvent evt) { // "Neustart"
