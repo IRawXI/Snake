@@ -187,7 +187,7 @@ public class Oberflaeche extends JFrame {
             }
         });
         cp.add(jButton3);
-        jButton4.setBounds(frameW-r-w, frameH-r-h, w, h);
+        jButton4.setBounds(frameW-r-w, frameH-3*r-h-20, w, h);
         jButton4.setText("Neustart");
         jButton4.setForeground(Color.black);
         jButton4.setBackground(Color.white);
@@ -272,8 +272,9 @@ public class Oberflaeche extends JFrame {
         jLabel4.setText("01:45");
         jLabel4.setForeground(Color.green);
         cp.add(jLabel4);  
-        jLabel5.setBounds(r, 4 * r + editorPaneY + 3 * h + 4, jLabel5W, jLabelH);
-        jLabel5.setText("01:45");
+        jLabel5.setBounds(r, 4 * r + editorPaneY + 3 * h + 4 + jLabelH, jLabel5W, jLabelH);
+        jLabel5.setHorizontalAlignment(SwingConstants.CENTER);
+        jLabel5.setText("Start & Play :-)");
         jLabel5.setForeground(Color.green);
         cp.add(jLabel5);  
 
@@ -320,6 +321,10 @@ public class Oberflaeche extends JFrame {
 
     public int getFrameW_ohneSpielfeld() {
         return frameW_ohneSpielfeld;
+    }
+
+    public void setjLabel5Text(String text) {
+        this.jLabel5.setText(text);
     }
 
     public int getFrameH_ohneSpielfeld() {

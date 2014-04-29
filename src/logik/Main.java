@@ -184,7 +184,7 @@ public class Main {
     
     public static void collision(int new_x, int new_y){
         if(new_x < 0 || new_x >= ground.getLength() || new_y < 0 || new_y >= ground.get0Length()){
-            System.out.println("You failed!");
+            oberflaeche.setjLabel5Text("You failed!");
             checkRestart();
         }
         else{
@@ -192,7 +192,7 @@ public class Main {
             for(int a = 0; a < snake.getLaenge()-1; a++){
                 if(new_x == snake.getSnakePos(a).getPosX() && new_y == snake.getSnakePos(a).getPosY()){
                     failed = true;
-                    System.out.println("You failed!");
+                    oberflaeche.setjLabel5Text("You failed!");
                     checkRestart();
                 }
             }
