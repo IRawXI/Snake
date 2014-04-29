@@ -38,7 +38,7 @@ public class ErzeugeBild {
     final int h = 25;
     final int w = 75;
     int rand_oben = 2*r+h;
-    int rand_unten = 2*r+3*h;
+    int rand_unten = 4*r+3*h+20;
     int rand_links = r;
     int rand_rechts = r;
 

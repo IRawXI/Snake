@@ -84,6 +84,9 @@ public class Oberflaeche extends JFrame {
         final int jLabel2W = 70;
         final int jLabel3W = 34;
         final int jLabel4W = 50;
+        final int jLabel5W;
+        
+        final int jLabelH = 20;
 
         final int editorPaneX = groesseX;
         final int editorPaneY = groesseY;
@@ -102,8 +105,10 @@ public class Oberflaeche extends JFrame {
             frameW = frameW2;
             frameW_ohneSpielfeld = frameW - (2 * r);
         }
-        int frameH = 4 * r + 4 * h + editorPaneY;
+        int frameH = 4 * r + 4 * h + editorPaneY + 2*r +jLabelH;
 
+        jLabel5W = frameW - 2*r;
+        
         frameH_ohneSpielfeld = 4 * r + 4 * h;
 
         int minusWidth = r/2;
@@ -251,22 +256,26 @@ public class Oberflaeche extends JFrame {
 
         jLabel0.setBounds(r +1, 2 * r + h +1, editorPaneX, editorPaneY);
         cp.add(jLabel0);
-        jLabel1.setBounds(r, 3 * r + editorPaneY + 3 * h + 4, jLabel1W, 20);
+        jLabel1.setBounds(r, 3 * r + editorPaneY + 3 * h + 4, jLabel1W, jLabelH);
         jLabel1.setText("Score: ");
         jLabel1.setForeground(Color.green);
         cp.add(jLabel1);
-        jLabel2.setBounds(r + jLabel1W, 3 * r + editorPaneY + 3 * h + 4, jLabel2W, 20);
+        jLabel2.setBounds(r + jLabel1W, 3 * r + editorPaneY + 3 * h + 4, jLabel2W, jLabelH);
         jLabel2.setText("0123456789");
         jLabel2.setForeground(Color.green);
         cp.add(jLabel2);
-        jLabel3.setBounds(frameW - r - jLabel4W - jLabel3W, 3 * r + editorPaneY + h, jLabel3W, 20);
+        jLabel3.setBounds(frameW - r - jLabel4W - jLabel3W, 3 * r + editorPaneY + h, jLabel3W, jLabelH);
         jLabel3.setText("Time: ");
         jLabel3.setForeground(Color.green);
         cp.add(jLabel3);
-        jLabel4.setBounds(frameW - r - jLabel4W, 3 * r + editorPaneY + h, jLabel4W, 20);
+        jLabel4.setBounds(frameW - r - jLabel4W, 3 * r + editorPaneY + h, jLabel4W, jLabelH);
         jLabel4.setText("01:45");
         jLabel4.setForeground(Color.green);
-        cp.add(jLabel4);   
+        cp.add(jLabel4);  
+        jLabel5.setBounds(r, 4 * r + editorPaneY + 3 * h + 4, jLabel5W, jLabelH);
+        jLabel5.setText("01:45");
+        jLabel5.setForeground(Color.green);
+        cp.add(jLabel5);  
 
 
         
